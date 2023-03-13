@@ -2,6 +2,9 @@ package utilities;
 
 import org.openqa.selenium.WebDriver;
 
+
+import pageObjects.LumaHomePage;
+import pageObjects.LumaSearchResultPage;
 import pageObjects.HomeDepotHomePage;
 import pageObjects.ZulilySearchResultPage;
 import pageObjects.ZulilyHomePage;
@@ -10,6 +13,8 @@ public class PageManager {
 
 	private static PageManager pageManager;
 	private WebDriver driver;
+	private LumaHomePage lumaHomePage;
+	private LumaSearchResultPage lumaSearchResultPage;
 	private HomeDepotHomePage homePage;
 	private ZulilyHomePage zulilyHomePage;
 	private ZulilySearchResultPage searchResultPage;
@@ -38,6 +43,19 @@ public class PageManager {
 		}
 		return homePage;
 	}
+
+	public LumaHomePage lumaHomePage() {
+		if (lumaHomePage == null) {
+			lumaHomePage = new LumaHomePage(driver);
+		}
+		return lumaHomePage;
+	}
+	public LumaSearchResultPage lumaSearchResultPage() {
+		if (lumaSearchResultPage == null) {
+			lumaSearchResultPage = new LumaSearchResultPage(driver);
+		}
+		return lumaSearchResultPage;
+	}
 	
 	public ZulilyHomePage zulilyHomePage() {
 		if (zulilyHomePage == null) {
@@ -52,5 +70,6 @@ public class PageManager {
 		}
 		return searchResultPage;
 	}
+
 
 }
