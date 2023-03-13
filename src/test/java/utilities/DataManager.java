@@ -24,15 +24,15 @@ public class DataManager {
 	}
 
 	// Data
-	private String token;
+	private String productName;
 
-	public String getToken() {
-		assertNotNull(token, "DataManager - Token is not available");
-		return token;
+	public String getProductName() {
+		assertNotNull(productName, "DataManager - productName is not available");
+		return productName;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setproductName(String productName) {
+		this.productName = productName;
 	}
 
 

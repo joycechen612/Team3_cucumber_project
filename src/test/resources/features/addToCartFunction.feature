@@ -11,4 +11,4 @@ Feature: Verify addToCart Function
     Then the product should show up then user click it
     And user click add to basket button
     Then user should see this product on Shopping Basket page
-      | productName | LEGO® Harry Potter™ 76420 Triwizard Tournament: The Black Lake V39 |
+     

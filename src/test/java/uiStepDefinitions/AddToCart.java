@@ -4,16 +4,22 @@ import java.util.Map;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import utilities.DataManager;
 import utilities.PageManager;
 
 public class AddToCart {
 
 	private PageManager pages = PageManager.getInstance();
+	private DataManager dataManager = DataManager.getInstance();
+
 
 	@Then("user enter one specific product name in the search box")
 	public void userEnterOneSpecificProductNameInTheSearchBox(DataTable dataTable) {
 		Map<String, String> data = dataTable.asMap();
-		pages.zulilyHomePage().enterSearchContentThenSubmit(data.get("productName"));
+		String productName=data.get("productName");
+		pages.zulilyHomePage().enterSearchContentThenSubmit(productName);
+		dataManager.setproductName(productName);
+		
 	}
 
 	@Then("the product should show up then user click it")
@@ -27,9 +33,8 @@ public class AddToCart {
 	}
 
 	@Then("user should see this product on Shopping Basket page")
-	public void userShouldSeeThisProductOnShoppingBasketPage(DataTable dataTable) {
-		Map<String, String> data = dataTable.asMap();
-		pages.searchResultPage().verifyProductName(data.get("productName"));
+	public void userShouldSeeThisProductOnShoppingBasketPage() {
+		pages.searchResultPage().verifyProductName(dataManager.getProductName());
 
 	}
 
