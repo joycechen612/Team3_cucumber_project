@@ -26,7 +26,7 @@ public class Search {
 		pages.zulilyHomePage().clickChooseOption(content);
 	}
 
-	@Then("verify {string} should on the page head")
+	@Then("verify {string} should on the each search result")
 	public void verify_should_on_the_page_head(String content){
 		pages.searchResultPage().verifySearchTitle(content);
 
