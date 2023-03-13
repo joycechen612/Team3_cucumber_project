@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,14 +32,26 @@ public class ZulilyHomePage {
 	private WebElement searchBoxField;
 	@FindBy(how = How.CSS, using = searchOptionCss)
 	private List<WebElement> searchOptions;
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Member?  Sign In')]")
+	private WebElement signInButton;
+	@FindBy(how = How.ID, using = "signin_email")
+	private WebElement emailField;
+	@FindBy(how = How.ID, using = "signin_password")
+	private WebElement passwordField;
+	@FindBy(how = How.XPATH, using = "//button[@value='Login']")
+	private WebElement shopNowButton;
 
 	// Actions
-	public void navigate() {
+	public void navigate(){
 		driver.get(URL);
 	}
 
 	public void enterSearchContent(String content) {
 		searchBoxField.sendKeys(content);
+	}
+
+	public void enterSearchContentThenSubmit(String content) {
+		searchBoxField.sendKeys(content, Keys.ENTER);
 	}
 
 	public void verifySearchResults(String content) {
@@ -56,6 +69,17 @@ public class ZulilyHomePage {
 				break;
 			}
 		}
+	}
+
+	public void clickSignInButton() {
+		signInButton.click();
+	}
+
+	public void enterEmailAndPW(String username, String password) {
+		emailField.sendKeys(username);
+		passwordField.sendKeys(password);
+		shopNowButton.click();
+
 	}
 
 }

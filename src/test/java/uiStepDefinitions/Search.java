@@ -7,7 +7,7 @@ public class Search {
 	private PageManager pages = PageManager.getInstance();
 
 	@Given("user come to Zulily homepage")
-	public void userNavigateToHomepage() {
+	public void userNavigateToHomepage(){
 		pages.zulilyHomePage().navigate();
 	}
 
