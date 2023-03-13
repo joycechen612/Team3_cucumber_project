@@ -3,8 +3,6 @@ package utilities;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
-import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -27,7 +25,7 @@ public class DriverManager {
 				ChromeOptions Option = new ChromeOptions();
 				Option.addArguments("--remote-allow-origins=*");
 				driver = new ChromeDriver(Option);
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 				driver.manage().window().maximize();
 			}
 		} catch (Exception e) {
