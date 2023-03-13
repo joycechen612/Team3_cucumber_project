@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.Duration;
 
-public class HomePage {
+public class HomeDepotHomePage {
 
 	// Local Variable
 	private WebDriver driver;
@@ -31,7 +31,7 @@ public class HomePage {
 	private WebElement createAccountPageTitle;
 
 	// Constructor
-	public HomePage(WebDriver driver) {
+	public HomeDepotHomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
