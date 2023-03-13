@@ -7,4 +7,4 @@ Feature: verify search box function
     Then user enter "home" in the searchBox
     And user should verify all the drop down options contains keyword "home"
     Then user choose "Linon Home"
-    And verify "Linon Home" should on the page head
+   And verify "Linon Home" should on the page head

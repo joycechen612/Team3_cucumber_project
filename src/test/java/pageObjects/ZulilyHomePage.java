@@ -23,7 +23,8 @@ public class ZulilyHomePage {
 	// Constructor
 	public ZulilyHomePage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);	}
+		PageFactory.initElements(driver, this);
+	}
 
 	// Elements
 	@FindBy(how = How.ID, using = "q")
@@ -50,8 +51,9 @@ public class ZulilyHomePage {
 
 	public void clickChooseOption(String content) {
 		for (WebElement searchOption : searchOptions) {
-			if (searchOption.getText().contains(content)) {
+			if (searchOption.getText().equalsIgnoreCase(content)) {
 				searchOption.click();
+				break;
 			}
 		}
 	}

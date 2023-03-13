@@ -3,6 +3,7 @@ package utilities;
 import org.openqa.selenium.WebDriver;
 
 import pageObjects.HomeDepotHomePage;
+import pageObjects.SearchResultPage;
 import pageObjects.ZulilyHomePage;
 
 public class PageManager {
@@ -11,6 +12,7 @@ public class PageManager {
 	private WebDriver driver;
 	private HomeDepotHomePage homePage;
 	private ZulilyHomePage zulilyHomePage;
+	private SearchResultPage searchResultPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -42,6 +44,13 @@ public class PageManager {
 			zulilyHomePage = new ZulilyHomePage(driver);
 		}
 		return zulilyHomePage;
+	}
+	
+	public SearchResultPage searchResultPage() {
+		if (searchResultPage == null) {
+			searchResultPage = new SearchResultPage(driver);
+		}
+		return searchResultPage;
 	}
 
 }
