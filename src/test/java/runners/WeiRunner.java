@@ -16,8 +16,6 @@ import org.junit.platform.suite.api.Suite;
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/html-report/index.html")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value ="uiStepDefinitions, hooks")
 @ConfigurationParameter(key =EXECUTION_DRY_RUN_PROPERTY_NAME, value="false")
-//@ConfigurationParameter(key=FILTER_TAGS_PROPERTY_NAME,value="@Luma")
-
 @ConfigurationParameter(key= FILTER_TAGS_PROPERTY_NAME,value="@Luma")
 
 
