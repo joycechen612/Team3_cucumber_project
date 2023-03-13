@@ -2,13 +2,15 @@ package utilities;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.HomePage;
+import pageObjects.HomeDepotHomePage;
+import pageObjects.ZulilyHomePage;
 
 public class PageManager {
 
 	private static PageManager pageManager;
 	private WebDriver driver;
-	private HomePage homePage;
+	private HomeDepotHomePage homePage;
+	private ZulilyHomePage zulilyHomePage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -28,11 +30,18 @@ public class PageManager {
 		}
 	}
 	
-	public HomePage homePage() {
+	public HomeDepotHomePage homePage() {
 		if (homePage == null) {
-			homePage = new HomePage(driver);
+			homePage = new HomeDepotHomePage(driver);
 		}
 		return homePage;
+	}
+	
+	public ZulilyHomePage zulilyHomePage() {
+		if (zulilyHomePage == null) {
+			zulilyHomePage = new ZulilyHomePage(driver);
+		}
+		return zulilyHomePage;
 	}
 
 }
