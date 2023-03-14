@@ -11,7 +11,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverManager {
 
-
 	private static WebDriver driver;
 	private static String customSessionId;
 
@@ -50,6 +49,5 @@ public class DriverManager {
 			customSessionId = null;
 		}
 	}
-
 
 }

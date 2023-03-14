@@ -6,13 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import utilities.Util;
-
 public class LumaHomePage {
-//local Variable
+	// local Variable
 	private WebDriver driver;
 	private static final String URL = "https://magento2.algolia.com/";
-//  Elements
+	// Elements
 	@FindBy(how = How.ID, using = "search")
 	private WebElement searchField;
 	@FindBy(how = How.ID, using = "algolia-glass")
@@ -20,12 +18,13 @@ public class LumaHomePage {
 	@FindBy(how = How.XPATH, using = "//span[@class='base']")
 	private WebElement searchResult;
 
-//	Constructor
+	// Constructor
 	public LumaHomePage(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver,this);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-// Action
+
+	// Action
 	public void navigate() {
 		driver.get(URL);
 	}
@@ -37,6 +36,5 @@ public class LumaHomePage {
 	public void clickSearchButton() {
 		searchButton.click();
 	}
-
 
 }

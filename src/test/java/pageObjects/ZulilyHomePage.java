@@ -40,9 +40,11 @@ public class ZulilyHomePage {
 	private WebElement passwordField;
 	@FindBy(how = How.XPATH, using = "//button[@value='Login']")
 	private WebElement shopNowButton;
+	@FindBy(how = How.XPATH, using = "//li[contains(@class,'main-nav-item dropdown')]")
+	private WebElement shopByCategoryButton;
 
 	// Actions
-	public void navigate(){
+	public void navigate() {
 		driver.get(URL);
 	}
 
@@ -79,7 +81,10 @@ public class ZulilyHomePage {
 		emailField.sendKeys(username);
 		passwordField.sendKeys(password);
 		shopNowButton.click();
+	}
 
+	public void clickshopByCategory() {
+		shopByCategoryButton.click();
 	}
 
 }
