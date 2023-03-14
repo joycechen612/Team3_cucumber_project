@@ -3,7 +3,7 @@ package uiStepDefinitions;
 import io.cucumber.java.en.*;
 import utilities.PageManager;
 
-public class Search {
+public class ZulilySearch {
 	private PageManager pages = PageManager.getInstance();
 
 	@Given("user come to Zulily homepage")
