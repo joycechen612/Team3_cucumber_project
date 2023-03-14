@@ -86,5 +86,6 @@ public class ZulilyHomePage {
 	public void clickshopByCategory() {
 		shopByCategoryButton.click();
 	}
+	
 
 }
