@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,6 +87,12 @@ public class ZulilyHomePage {
 	public void clickshopByCategory() {
 		shopByCategoryButton.click();
 	}
-	
+
+	public void ScrollDownToPageBottom() {
+		utilities.Util.wait(3);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+		utilities.Util.wait(3);
+	}
 
 }
