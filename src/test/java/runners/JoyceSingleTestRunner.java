@@ -13,11 +13,11 @@ import static io.cucumber.junit.platform.engine.Constants.SNIPPET_TYPE_PROPERTY_
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features")
-
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value ="uiStepDefinitions, hooks")
-@ConfigurationParameter(key =SNIPPET_TYPE_PROPERTY_NAME, value ="camelcase" )
-@ConfigurationParameter(key =EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
-@ConfigurationParameter(key =FILTER_TAGS_PROPERTY_NAME, value = "@addToCart")
-public class SingleTestRunner {
+@SelectClasspathResource("JoyceFeatures")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/html-report/index.html")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "uiStepDefinitions, hooks")
+@ConfigurationParameter(key = SNIPPET_TYPE_PROPERTY_NAME, value = "camelcase")
+@ConfigurationParameter(key = EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@addToCart")
+public class JoyceSingleTestRunner {
 }

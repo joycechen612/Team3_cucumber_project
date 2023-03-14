@@ -3,7 +3,7 @@ package uiStepDefinitions;
 import io.cucumber.java.en.*;
 import utilities.PageManager;
 
-public class Search {
+public class ZulilySearch {
 	private PageManager pages = PageManager.getInstance();
 
 	@Given("user come to Zulily homepage")
@@ -21,12 +21,12 @@ public class Search {
 		pages.zulilyHomePage().verifySearchResults(content);
 	}
 
-	@Then("user choose {string}")
+	@Then("user choose brand name {string}")
 	public void user_choose(String content) {
 		pages.zulilyHomePage().clickChooseOption(content);
 	}
 
-	@Then("verify {string} should on the each search result")
+	@Then("verify {string} should on the each search result on first page")
 	public void verify_should_on_the_page_head(String content){
 		pages.searchResultPage().verifySearchTitle(content);
 

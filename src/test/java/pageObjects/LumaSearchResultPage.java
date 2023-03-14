@@ -8,30 +8,22 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import utilities.Util;
-
 public class LumaSearchResultPage {
-// Local Variable
+	// Local Variable
 	private WebDriver driver;
-//	Elements
-@FindBy(how= How.XPATH,using="//span[@class='base']")
-private WebElement searchResult;
+	// Elements
+	@FindBy(how = How.XPATH, using = "//span[@class='base']")
+	private WebElement searchResult;
 
-// Constructor ?
-public LumaSearchResultPage(WebDriver driver) {
-	this.driver=driver;
-	PageFactory.initElements(driver, this);
-}
-
-// Actions
-public void validate(String expectedSearchInformaion) {
-	boolean contains = false;
-	if (searchResult.getText().contains(expectedSearchInformaion)) {
-		contains=true;
+	// Constructor
+	public LumaSearchResultPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-  assertTrue(contains,"the serch information is not contains");
-}
 
-
+	// Actions
+	public void validate(String expectedSearchInformaion) {
+		assertTrue(searchResult.getText().contains(expectedSearchInformaion), "the serch information is not contains");
+	}
 
 }

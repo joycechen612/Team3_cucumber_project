@@ -2,11 +2,12 @@ package utilities;
 
 import org.openqa.selenium.WebDriver;
 
-
 import pageObjects.LumaHomePage;
 import pageObjects.LumaSearchResultPage;
 import pageObjects.HomeDepotHomePage;
 import pageObjects.ZulilySearchResultPage;
+import pageObjects.ZulilySignInPage;
+import pageObjects.ZulilyToysPage;
 import pageObjects.ZulilyHomePage;
 
 public class PageManager {
@@ -18,11 +19,12 @@ public class PageManager {
 	private HomeDepotHomePage homePage;
 	private ZulilyHomePage zulilyHomePage;
 	private ZulilySearchResultPage searchResultPage;
+	private ZulilyToysPage zulilyToysPage;
+	private ZulilySignInPage zulilySignInPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
 	}
-	
 
 	public static PageManager getInstance() {
 		if (pageManager == null) {
@@ -36,7 +38,7 @@ public class PageManager {
 			pageManager = null;
 		}
 	}
-	
+
 	public HomeDepotHomePage homePage() {
 		if (homePage == null) {
 			homePage = new HomeDepotHomePage(driver);
@@ -50,20 +52,21 @@ public class PageManager {
 		}
 		return lumaHomePage;
 	}
+
 	public LumaSearchResultPage lumaSearchResultPage() {
 		if (lumaSearchResultPage == null) {
 			lumaSearchResultPage = new LumaSearchResultPage(driver);
 		}
 		return lumaSearchResultPage;
 	}
-	
+
 	public ZulilyHomePage zulilyHomePage() {
 		if (zulilyHomePage == null) {
 			zulilyHomePage = new ZulilyHomePage(driver);
 		}
 		return zulilyHomePage;
 	}
-	
+
 	public ZulilySearchResultPage searchResultPage() {
 		if (searchResultPage == null) {
 			searchResultPage = new ZulilySearchResultPage(driver);
@@ -71,5 +74,18 @@ public class PageManager {
 		return searchResultPage;
 	}
 
+	public ZulilyToysPage zulilyToysPage() {
+		if (zulilyToysPage == null) {
+			zulilyToysPage = new ZulilyToysPage(driver);
+		}
+		return zulilyToysPage;
+	}
+	
+	public ZulilySignInPage zulilySignInPage() {
+		if (zulilySignInPage == null) {
+			zulilySignInPage = new ZulilySignInPage(driver);
+		}
+		return zulilySignInPage;
+	}
 
 }

@@ -25,6 +25,27 @@ public class DataManager {
 
 	// Data
 	private String productName;
+	private String orderQty;
+	private int lowPrice;
+	private int highPrice;
+
+	public int getLowPrice() {
+		assertNotNull(lowPrice, "DataManager - lowPrice is not available");
+		return lowPrice;
+	}
+
+	public void setLowPrice(int lowPrice) {
+		this.lowPrice = lowPrice;
+	}
+
+	public int getHighPrice() {
+		assertNotNull(highPrice, "DataManager - highPrice is not available");
+		return highPrice;
+	}
+
+	public void setHighPrice(int highPrice) {
+		this.highPrice = highPrice;
+	}
 
 	public String getProductName() {
 		assertNotNull(productName, "DataManager - productName is not available");
@@ -35,5 +56,13 @@ public class DataManager {
 		this.productName = productName;
 	}
 
+	public String getOrderQty() {
+		assertNotNull(orderQty, "DataManager - order quantity is not available");
+		return orderQty;
+	}
+
+	public void setOrderQty(String orderQty) {
+		this.orderQty = orderQty;
+	}
 
 }
