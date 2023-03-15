@@ -10,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ZulilyGiftCardPage {

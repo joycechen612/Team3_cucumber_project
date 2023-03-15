@@ -11,5 +11,5 @@ Feature:
     Then user click customize button under birthday
     Then user fill in the information for the gift card and click add to basket button
       | amount | send date  | recipient name | recipient email   | from | message                        |
-      |     75 | 05/12/2023 | joyce          | joyce123@test.com | tina | Happy Brithday, my dear friend |
+      |     25 | 05/12/2023 | joyce          | joyce123@test.com | tina | Happy Brithday, my dear friend |
     Then verify the gift card info in the shopping basket page
