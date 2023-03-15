@@ -43,6 +43,8 @@ public class ZulilyHomePage {
 	private WebElement shopNowButton;
 	@FindBy(how = How.XPATH, using = "//li[contains(@class,'main-nav-item dropdown')]")
 	private WebElement shopByCategoryButton;
+	@FindBy(how = How.XPATH, using = "//a[@tag-action='Gift Cards']")
+	private WebElement giftCardField;
 
 	// Actions
 	public void navigate() {
@@ -87,12 +89,10 @@ public class ZulilyHomePage {
 	public void clickshopByCategory() {
 		shopByCategoryButton.click();
 	}
-
-	public void ScrollDownToPageBottom() {
-		utilities.Util.wait(3);
+	
+	public void clickGiftCard() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-		utilities.Util.wait(3);
+		js.executeScript("arguments[0].click()", giftCardField);
 	}
 
 }

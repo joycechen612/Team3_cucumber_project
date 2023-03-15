@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.LumaHomePage;
 import pageObjects.LumaSearchResultPage;
+import pageObjects.ZulilyGiftCardPage;
 import pageObjects.HomeDepotHomePage;
 import pageObjects.ZulilySearchResultPage;
 import pageObjects.ZulilySignInPage;
@@ -21,6 +22,7 @@ public class PageManager {
 	private ZulilySearchResultPage searchResultPage;
 	private ZulilyToysPage zulilyToysPage;
 	private ZulilySignInPage zulilySignInPage;
+	private ZulilyGiftCardPage zulilyGiftCardPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -80,12 +82,19 @@ public class PageManager {
 		}
 		return zulilyToysPage;
 	}
-	
+
 	public ZulilySignInPage zulilySignInPage() {
 		if (zulilySignInPage == null) {
 			zulilySignInPage = new ZulilySignInPage(driver);
 		}
 		return zulilySignInPage;
+	}
+
+	public ZulilyGiftCardPage zulilyGiftCardPage() {
+		if (zulilyGiftCardPage == null) {
+			zulilyGiftCardPage = new ZulilyGiftCardPage(driver);
+		}
+		return zulilyGiftCardPage;
 	}
 
 }
