@@ -1,6 +1,6 @@
 target/
 .classpath
 .project
-.cucumber
+.tmp
 .settings/
 .DS_Store
