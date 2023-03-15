@@ -7,7 +7,7 @@ Feature:
       | username | joycechen612@gmail.com |
       | password | Qwert12345!            |
     Then user add one specific product to the shopping basket
-      | productName | LEGO® Star Wars™ 75335 BD-1 |
+      | productName | LEGO® Star Wars™ 75347 TIE Bomber™ |
     Then user should see this product on Shopping Basket page
     And user click edit button change the order quantity to "5" then click update
     Then the order quantity should change to updated number

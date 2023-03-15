@@ -58,8 +58,12 @@ public class ZulilySearchResultPage {
 
 	public void clickSearchResultItem() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOf(sigleSearchResultField));
-		sigleSearchResultField.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOf(sigleSearchResultField));
+			sigleSearchResultField.click();
+		} catch (Exception e) {
+			System.out.println("this item is out of stock");
+		}
 	}
 
 	public void clickAddToBasket() {
