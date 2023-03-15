@@ -12,7 +12,7 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features")
+@SelectClasspathResource("weiFeatures")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/html-report/index.html")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value ="uiStepDefinitions, hooks")
 @ConfigurationParameter(key =EXECUTION_DRY_RUN_PROPERTY_NAME, value="false")
