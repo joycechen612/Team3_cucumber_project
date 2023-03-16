@@ -10,11 +10,16 @@ Feature: verify search box function
     And verify "Linon Home" should on the each search result on first page
 
   @ui @jeans
-  Scenario: 
+  Scenario Outline: 
     Given user come to Zulily homepage
     Then user enter one specific product name in the search box
-      | productName | jeans |
+      | productName | <productName> |
     Then on the search header pick some filter
-      | brandName         | departmentName | subcategories | priceRange | size      |
-      | 7 For All Mankind | Women          | Pants         | $50 - $100 | XS (00-2) |
+      | brandName   | departmentName   | subcategories   | priceRange   | size   |
+      | <brandName> | <departmentName> | <subcategories> | <priceRange> | <size> |
     Then verify the result items meet the requirements
+
+    Examples: 
+      | productName | brandName         | departmentName | subcategories               | priceRange | size      |
+      | jeans       | 7 For All Mankind | Women          | Pants                       | $50 - $100 | XS (00-2) |
+      | shoes       | Clarks            | Women          | Sneakers and Athletic Shoes | $25 - $50  |         6 |

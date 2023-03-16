@@ -2,13 +2,16 @@ package uiStepDefinitions;
 
 import java.util.Map;
 
+import POJO.ZulilySearchFilter;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import utilities.DataManager;
 import utilities.PageManager;
 
 public class ZulilySearch {
 	private PageManager pages = PageManager.getInstance();
 	private Map<String, String> data;
+	private DataManager dataManager = DataManager.getInstance();
 
 	@Given("user come to Zulily homepage")
 	public void userNavigateToHomepage() {
@@ -41,13 +44,17 @@ public class ZulilySearch {
 		data = dataTable.asMaps().get(0);
 		pages.searchResultPage().pickFilter(data.get("brandName"), data.get("departmentName"),
 				data.get("subcategories"), data.get("priceRange"), data.get("size"));
+		ZulilySearchFilter zulilySearchFilter = new ZulilySearchFilter(dataManager.getProductName(),
+				data.get("brandName"), data.get("departmentName"), data.get("subcategories"), data.get("priceRange"),
+				data.get("size"));
+		dataManager.setzulilySearchFilter(zulilySearchFilter);
 
 	}
 
 	@Then("verify the result items meet the requirements")
 	public void verifyTheResultItemsMeetTheRequirements() {
-		pages.searchResultPage().verifyfilterSearchResult(data.get("brandName"), data.get("priceRange"),
-				data.get("departmentName"));
+		pages.searchResultPage().verifyfilterSearchResult(dataManager.getProductName(), data.get("brandName"),
+				data.get("priceRange"), data.get("departmentName"));
 
 	}
 }

@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.By;
@@ -13,6 +14,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import POJO.ZulilySearchFilter;
+import POJO.ZulilySearchResult;
+import utilities.ExcelUtil;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -106,8 +111,8 @@ public class ZulilySearchResultPage {
 		assertTrue(summaryQtyField.getText().contains(number));
 	}
 
-	public void pickFilter(String brandName, String departmentName, String subcategories, String priceRange,
-			String size) {
+	public void pickFilter(String brandName, String departmentName, String subcategories,
+			String priceRange, String size) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(addBrandsField)).click();
 		driver.findElement(By.xpath("//a[contains(text(),'" + brandName + "')]")).click();
@@ -124,15 +129,18 @@ public class ZulilySearchResultPage {
 		wait.until(ExpectedConditions.visibilityOf(allSizeField)).click();
 		driver.findElement(By.xpath("//li[contains(@label,'" + size + "')]")).click();
 		utilities.Util.wait(3);
+		
 	}
 
-	public void verifyfilterSearchResult(String ExpectedBrandName, String expectedPriceRange, String departmentName) {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	public void verifyfilterSearchResult(String productName, String ExpectedBrandName, String expectedPriceRange,
+			String departmentName) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.numberOfElementsToBe(
 				By.xpath("//li[contains(@class,'zu-trackable-search-result')]"), filterRearchResults.size()));
-		utilities.Util.wait(5);
-
+		List<ZulilySearchResult> results = new ArrayList<>();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+				"(//li[contains(@class,'zu-trackable-search-result')])[1]//div[@class='product_tile_v2_price_container']/span[1]")));
+		int id = 1;
 		for (int index = 1; index <= filterRearchResults.size(); index++) {
 			String parentXpath = "(//li[contains(@class,'zu-trackable-search-result')])[" + index + "]";
 			String priceXpath = parentXpath + "//div[@class='product_tile_v2_price_container']/span[1]";
@@ -141,13 +149,12 @@ public class ZulilySearchResultPage {
 			String actualPriceRange = driver.findElement(By.xpath(priceXpath)).getText();
 			String actualBrandName = driver.findElement(By.xpath(brandXpath)).getText();
 			String actualProductDescription = driver.findElement(By.xpath(productXpath)).getText();
+			results.add(new ZulilySearchResult(id, actualProductDescription, actualPriceRange));
+			id++;
 			assertEquals(ExpectedBrandName, actualBrandName);
 			assertTrue(actualProductDescription.contains(departmentName));
-			System.out.println(actualPriceRange);
-			System.out.println(actualBrandName);
-			System.out.println(actualProductDescription);
-			System.out.println("==========");
-			utilities.Util.wait(2);
+
+			utilities.Util.wait(1);
 
 			String expectedLowPrice = expectedPriceRange.split("-")[0].trim().replace("$", "");
 			String expectedHighPrice = expectedPriceRange.split("-")[1].trim().replace("$", "");
@@ -164,6 +171,8 @@ public class ZulilySearchResultPage {
 			}
 
 		}
+
+		ExcelUtil.writeZulilySearchResultToFile(results, productName);
 	}
 
 }
