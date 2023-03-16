@@ -20,6 +20,6 @@ Feature: verify search box function
     Then verify the result items meet the requirements
 
     Examples: 
-      | productName | brandName         | departmentName | subcategories               | priceRange | size      |
-      | jeans       | 7 For All Mankind | Women          | Pants                       | $50 - $100 | XS (00-2) |
-      | shoes       | Clarks            | Women          | Sneakers and Athletic Shoes | $25 - $50  |         6 |
+      | productName | brandName         | departmentName | subcategories | priceRange | size           |
+      | jeans       | 7 For All Mankind | Women          | Pants         | $50 - $100 | XS (00-2)      |
+      | dress       | Pixie Girl        | Girls          | Dresses       | $25 - $50  | 12 (big kid M) |
