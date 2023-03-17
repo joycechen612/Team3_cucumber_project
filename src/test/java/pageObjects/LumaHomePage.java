@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.Util;
+
 public class LumaHomePage {
 	// local Variable
 	private WebDriver driver;
@@ -17,6 +19,9 @@ public class LumaHomePage {
 	private WebElement searchButton;
 	@FindBy(how = How.XPATH, using = "//span[@class='base']")
 	private WebElement searchResult;
+	@FindBy(how = How.XPATH, using = "//a[@id='idhaUHXJn3']")
+	private WebElement createAccoutButton;
+
 
 	// Constructor
 	public LumaHomePage(WebDriver driver) {
@@ -35,6 +40,10 @@ public class LumaHomePage {
 
 	public void clickSearchButton() {
 		searchButton.click();
+	}
+	public void clickCreateAccountButton() {
+		Util.wait(3);
+		createAccoutButton.click();
 	}
 
 }
