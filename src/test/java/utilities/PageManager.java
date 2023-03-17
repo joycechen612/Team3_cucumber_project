@@ -6,6 +6,7 @@ import pageObjects.LumaHomePage;
 import pageObjects.LumaSearchResultPage;
 import pageObjects.ZulilyGiftCardPage;
 import pageObjects.HomeDepotHomePage;
+import pageObjects.KaTomHomePage;
 import pageObjects.ZulilySearchResultPage;
 import pageObjects.ZulilySignInPage;
 import pageObjects.ZulilyToysPage;
@@ -15,6 +16,7 @@ public class PageManager {
 
 	private static PageManager pageManager;
 	private WebDriver driver;
+	private KaTomHomePage katomHomePage;
 	private LumaHomePage lumaHomePage;
 	private LumaSearchResultPage lumaSearchResultPage;
 	private HomeDepotHomePage homePage;
@@ -23,6 +25,7 @@ public class PageManager {
 	private ZulilyToysPage zulilyToysPage;
 	private ZulilySignInPage zulilySignInPage;
 	private ZulilyGiftCardPage zulilyGiftCardPage;
+	
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -46,6 +49,12 @@ public class PageManager {
 			homePage = new HomeDepotHomePage(driver);
 		}
 		return homePage;
+	}
+	public KaTomHomePage katomHomePage() {
+		if(katomHomePage == null) {
+			katomHomePage = new KaTomHomePage(driver);
+		}
+		return katomHomePage;
 	}
 
 	public LumaHomePage lumaHomePage() {
@@ -95,6 +104,11 @@ public class PageManager {
 			zulilyGiftCardPage = new ZulilyGiftCardPage(driver);
 		}
 		return zulilyGiftCardPage;
+	}
+
+	public Object KaTomHomePage() {
+		
+		return null;
 	}
 
 }
