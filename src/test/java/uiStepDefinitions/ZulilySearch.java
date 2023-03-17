@@ -1,13 +1,20 @@
 package uiStepDefinitions;
 
+import java.util.Map;
+
+import POJO.ZulilySearchFilter;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import utilities.DataManager;
 import utilities.PageManager;
 
 public class ZulilySearch {
 	private PageManager pages = PageManager.getInstance();
+	private Map<String, String> data;
+	private DataManager dataManager = DataManager.getInstance();
 
 	@Given("user come to Zulily homepage")
-	public void userNavigateToHomepage(){
+	public void userNavigateToHomepage() {
 		pages.zulilyHomePage().navigate();
 	}
 
@@ -27,8 +34,27 @@ public class ZulilySearch {
 	}
 
 	@Then("verify {string} should on the each search result on first page")
-	public void verify_should_on_the_page_head(String content){
+	public void verify_should_on_the_page_head(String content) {
 		pages.searchResultPage().verifySearchTitle(content);
+
+	}
+
+	@Then("on the search header pick some filter")
+	public void onTheSearchHeaderPickSomeFilter(DataTable dataTable) {
+		data = dataTable.asMaps().get(0);
+		pages.searchResultPage().pickFilter(data.get("brandName"), data.get("departmentName"),
+				data.get("subcategories"), data.get("priceRange"), data.get("size"));
+		ZulilySearchFilter zulilySearchFilter = new ZulilySearchFilter(dataManager.getProductName(),
+				data.get("brandName"), data.get("departmentName"), data.get("subcategories"), data.get("priceRange"),
+				data.get("size"));
+		dataManager.setzulilySearchFilter(zulilySearchFilter);
+
+	}
+
+	@Then("verify the result items meet the requirements")
+	public void verifyTheResultItemsMeetTheRequirements() {
+		pages.searchResultPage().verifyfilterSearchResult(dataManager.getProductName(), data.get("brandName"),
+				data.get("priceRange"), data.get("departmentName"));
 
 	}
 }
