@@ -4,11 +4,17 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.LumaHomePage;
 import pageObjects.LumaSearchResultPage;
+import pageObjects.YipingHomePage;
+import pageObjects.YipingLoginPage;
+import pageObjects.YipingNavbarPage;
+import pageObjects.YipingSearchPage;
+import pageObjects.YipingsearchresultPage;
 import pageObjects.ZulilyGiftCardPage;
 import pageObjects.HomeDepotHomePage;
 import pageObjects.ZulilySearchResultPage;
 import pageObjects.ZulilySignInPage;
 import pageObjects.ZulilyToysPage;
+import uiStepDefinitions.YipingsearchPageSteps;
 import pageObjects.ZulilyHomePage;
 
 public class PageManager {
@@ -23,6 +29,11 @@ public class PageManager {
 	private ZulilyToysPage zulilyToysPage;
 	private ZulilySignInPage zulilySignInPage;
 	private ZulilyGiftCardPage zulilyGiftCardPage;
+	private YipingHomePage yipingHomePage;
+	private YipingLoginPage yipingLoginPage;
+	private YipingNavbarPage yipingNavbarPage;
+	private YipingSearchPage yipingSearchPage;
+	private YipingsearchresultPage yipingsearchresultPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -97,4 +108,39 @@ public class PageManager {
 		return zulilyGiftCardPage;
 	}
 
+	public YipingHomePage yipingHomePage() {
+		if (yipingHomePage == null) {
+			yipingHomePage = new YipingHomePage(driver);
+		}
+		return yipingHomePage;
+	}
+
+	public YipingLoginPage yipingLoginPage() {
+		if (yipingLoginPage == null) {
+			yipingLoginPage = new YipingLoginPage(driver);
+		}
+		return yipingLoginPage;
+	}
+
+	public YipingNavbarPage yipingNavbarPage() {
+		if (yipingNavbarPage == null) {
+			yipingNavbarPage = new YipingNavbarPage(driver);
+		}
+		return yipingNavbarPage;
+
+	}
+
+	public YipingSearchPage yipingSearchPage() {
+		if (yipingSearchPage == null) {
+			yipingSearchPage = new YipingSearchPage(driver);
+		}
+		return yipingSearchPage;
+	}
+
+	public YipingsearchresultPage yipingsearchresultPage() {
+		if (yipingsearchresultPage == null) {
+			yipingsearchresultPage = new YipingsearchresultPage(driver);
+		}
+		return yipingsearchresultPage;
+	}
 }
