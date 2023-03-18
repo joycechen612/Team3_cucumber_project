@@ -21,7 +21,7 @@ public class ZuliluAddressPage {
 	private static final String expectedPageTitle = "My Account";
 
 	// Elements
-	@FindBy(how = How.CSS, using = "div#account-menu h2")
+	@FindBy(how = How.XPATH, using = "//div[@id='account-menu']/h2")
 	private WebElement myAccoutText;
 	@FindBy(how = How.XPATH, using = "//a[text()='Address Book']")
 	private WebElement addressBookField;
@@ -53,14 +53,13 @@ public class ZuliluAddressPage {
 	private WebElement saveAddress;
 	@FindBy(how = How.NAME, using = "address[default]")
 	private WebElement setDefault;
-	@FindBy(how = How.CSS, using = "button.address-form-submit")
+	@FindBy(how = How.XPATH, using = "//button[contains(@class,'address-form-submit')]")
 	private WebElement saveButton;
-	@FindBy(how = How.CLASS_NAME, using = "address-book-item ")
-	private WebElement addressBookContainer;
-	@FindBy(how = How.CLASS_NAME, using = "address-firstname")
+	@FindBy(how = How.XPATH, using = "//span[@class='address-firstname']")
 	private WebElement addressBookFirstName;
-	@FindBy(how = How.CLASS_NAME, using = "address-lastname")
+	@FindBy(how = How.XPATH, using = "//span[@class='address-lastname']")
 	private WebElement addressBookLastName;
+
 
 	// Constructor
 	public ZuliluAddressPage(WebDriver driver) {
@@ -92,6 +91,7 @@ public class ZuliluAddressPage {
 		if (!countrySelectedField.getText().contains(addressinfo.country)) {
 			countrySelect.selectByVisibleText(addressinfo.country);
 		}
+		utilities.Util.wait(2);
 		List<WebElement> options = stateSelectField.findElements(By.tagName("option"));
 		for (WebElement option : options) {
 			if (option.getText().equals(addressinfo.state)) {
@@ -99,18 +99,18 @@ public class ZuliluAddressPage {
 				break;
 			}
 		}
+		utilities.Util.wait(3);
 		zipCodeField.sendKeys(addressinfo.zipCode);
 		telephoneField.sendKeys(addressinfo.telephone);
 		passwordField.sendKeys(addressinfo.password);
-		utilities.Util.wait(3);
-		if (addressinfo.save) {
+		if (addressinfo.notSave) {
 			saveAddress.click();
 		}
-		utilities.Util.wait(3);
-		if (addressinfo.setDeault) {
+		if (addressinfo.notSetDefault) {
 			setDefault.click();
 		}
 		saveButton.click();
+		utilities.Util.wait(8);
 	}
 
 	public void validationAddressInfo(ZulilyAddressInfo addressinfo) {

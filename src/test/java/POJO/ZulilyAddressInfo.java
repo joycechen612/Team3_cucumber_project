@@ -11,12 +11,12 @@ public class ZulilyAddressInfo {
 	public String zipCode;
 	public String telephone;
 	public String password;
-	public boolean save;
-	public boolean setDeault;
+	public boolean notSave;
+	public boolean notSetDefault;
 
 	public ZulilyAddressInfo(String firstName, String lastName, String company, String address, String city,
-			String country, String state, String zipCode, String telephone, String password, boolean save,
-			boolean setDeault) {
+			String country, String state, String zipCode, String telephone, String password, boolean notSave,
+			boolean notSetDefault) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -28,8 +28,8 @@ public class ZulilyAddressInfo {
 		this.zipCode = zipCode;
 		this.telephone = telephone;
 		this.password = password;
-		this.save = save;
-		this.setDeault = setDeault;
+		this.notSave = notSave;
+		this.notSetDefault = notSetDefault;
 	}
 
 }

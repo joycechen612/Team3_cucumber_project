@@ -2,6 +2,7 @@ package utilities;
 
 import java.io.FileOutputStream;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -32,9 +33,6 @@ public class ExcelUtil {
 			row.createCell(2).setCellValue(result.title);
 			rowNum++;
 		}
-		
-		
-
 		XSSFRow brandNameRow = sheet.createRow(results.size() + 1);
 		brandNameRow.createCell(0).setCellValue("brandName");
 		brandNameRow.createCell(1).setCellValue(dataManager.getzulilySearchFilter().brandName);
@@ -50,6 +48,9 @@ public class ExcelUtil {
 		XSSFRow sizeRow = sheet.createRow(results.size() + 5);
 		sizeRow.createCell(0).setCellValue("size");
 		sizeRow.createCell(1).setCellValue(dataManager.getzulilySearchFilter().size);
+		XSSFRow timeRow = sheet.createRow(results.size() + 6);
+		timeRow.createCell(0).setCellValue("time");
+		timeRow.createCell(1).setCellValue("*"+LocalDateTime.now()+"*");
 
 		try {
 			FileOutputStream fos = new FileOutputStream("target/zulilySearch" + getTimeStamp() + ".xlsx");
