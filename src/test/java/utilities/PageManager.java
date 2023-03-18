@@ -4,13 +4,18 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.LumaHomePage;
 import pageObjects.LumaSearchResultPage;
+
 import pageObjects.YipingHomePage;
 import pageObjects.YipingLoginPage;
 import pageObjects.YipingNavbarPage;
 import pageObjects.YipingSearchPage;
 import pageObjects.YipingsearchresultPage;
+
+import pageObjects.ZuliluAddressPage;
+
 import pageObjects.ZulilyGiftCardPage;
 import pageObjects.HomeDepotHomePage;
+import pageObjects.LumaCreateNewAccountPage;
 import pageObjects.ZulilySearchResultPage;
 import pageObjects.ZulilySignInPage;
 import pageObjects.ZulilyToysPage;
@@ -29,12 +34,19 @@ public class PageManager {
 	private ZulilyToysPage zulilyToysPage;
 	private ZulilySignInPage zulilySignInPage;
 	private ZulilyGiftCardPage zulilyGiftCardPage;
+
 	private YipingHomePage yipingHomePage;
 	private YipingLoginPage yipingLoginPage;
 	private YipingNavbarPage yipingNavbarPage;
 	private YipingSearchPage yipingSearchPage;
 	private YipingsearchresultPage yipingsearchresultPage;
 
+
+	private ZuliluAddressPage zuliluAddressPage;
+
+
+
+	private LumaCreateNewAccountPage lumaCreateNewAccountPage;
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -72,7 +84,12 @@ public class PageManager {
 		}
 		return lumaSearchResultPage;
 	}
-
+	public LumaCreateNewAccountPage lumaCreateNewAccountPage() {
+		if (lumaCreateNewAccountPage == null) {
+			lumaCreateNewAccountPage = new LumaCreateNewAccountPage(driver);
+		}
+		return lumaCreateNewAccountPage;
+	}
 	public ZulilyHomePage zulilyHomePage() {
 		if (zulilyHomePage == null) {
 			zulilyHomePage = new ZulilyHomePage(driver);
@@ -107,6 +124,7 @@ public class PageManager {
 		}
 		return zulilyGiftCardPage;
 	}
+
 
 	public YipingHomePage yipingHomePage() {
 		if (yipingHomePage == null) {
@@ -143,4 +161,13 @@ public class PageManager {
 		}
 		return yipingsearchresultPage;
 	}
+  
+	public ZuliluAddressPage zuliluAddressPage() {
+		if (zuliluAddressPage == null) {
+			zuliluAddressPage = new ZuliluAddressPage(driver);
+		}
+		return zuliluAddressPage;
+	}
+
+
 }

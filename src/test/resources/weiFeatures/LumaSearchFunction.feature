@@ -1,7 +1,7 @@
-@Luma
+@LumaSearch
 Feature: Search button function
 
-  @ui
+  @UI 
   Scenario: Happy Path
     Given Navigate to Luma Homepage
     Then user Enter search information "top"

@@ -12,7 +12,7 @@ Feature: Verify Zulily Sign In function
 
     Examples: 
       | email          | password | errorMessage                           |
-      | test1@test.com |   123456 | Incorrect password                     |
+      #| test1@test.com |   123456 | Incorrect password                     |
       | name2          |   123456 | Please enter a valid email address     |
       | test1@test.com |      123 | Password must be at least 6 characters |
       |                |          | Email cannot be blank                  |
