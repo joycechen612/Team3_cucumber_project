@@ -1,14 +1,16 @@
 package pageObjects;
 
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import pojo.LumaAccountInfor;
-import utilities.Util;
+import io.cucumber.datatable.DataTable;
 
+import utilities.Util;
 
 public class LumaCreateNewAccountPage {
 	// Local Variable
@@ -35,7 +37,7 @@ public class LumaCreateNewAccountPage {
 	private WebElement showpasswordFiedled;
 	@FindBy(how = How.CLASS_NAME, using = "action submit primary")
 	private WebElement submitButtonFiedled;
-	
+
 	// Constructor
 	public LumaCreateNewAccountPage(WebDriver driver) {
 		this.driver = driver;
@@ -44,7 +46,7 @@ public class LumaCreateNewAccountPage {
 
 	// Actions
 	public void validateUrl() {
-
+		Util.wait(3);
 		String acturlUrl = driver.getCurrentUrl();
 		if (!acturlUrl.equals(expectedUrl)) {
 			System.out.println("you are not in creat an accout page");
@@ -52,24 +54,45 @@ public class LumaCreateNewAccountPage {
 
 	}
 
-	public void enterAccountinformation(LumaAccountInfor LumaAccountInfor) {
+//	public void enterAccountinformation(LumaAccountInfor LumaAccountInfor) {
+//		Util.wait(3);
+//		firstnameField.sendKeys(LumaAccountInfor.firstname);
+//		lastnameField.sendKeys(LumaAccountInfor.lastname);
+//		if (LumaAccountInfor.subscribed) {
+//			subscribedBoxFiedld.click();
+//		}
+//		if (LumaAccountInfor.assistance) {
+//			assistanceCheckboxFiedled.click();
+//		}
+//		emailFiedled.sendKeys(LumaAccountInfor.email);
+//		passwordFiedled.sendKeys(LumaAccountInfor.password);
+//		passwordconfirmationFiedled.sendKeys(LumaAccountInfor.passwordconfimation);
+//		if (LumaAccountInfor.showPassword) {
+//			showpasswordFiedled.click();
+//		}
+//		submitButtonFiedled.click();
+//	}
+	public void enterAccountinformation(String firstname, String lastname, boolean subscribed, boolean assistance,
+			String email, String password, String passwordconfimation, boolean showPassword) {
 		Util.wait(3);
-		firstnameField.sendKeys(LumaAccountInfor.firstname);
-		lastnameField.sendKeys(LumaAccountInfor.lastname);
-		if (LumaAccountInfor.subscribed) {
+		firstnameField.sendKeys(firstname);
+		lastnameField.sendKeys(lastname);
+		if (subscribed) {
 			subscribedBoxFiedld.click();
 		}
-		if (LumaAccountInfor.assistance) {
+		if (assistance) {
 			assistanceCheckboxFiedled.click();
 		}
-		emailFiedled.sendKeys(LumaAccountInfor.email);
-		passwordFiedled.sendKeys(LumaAccountInfor.password);
-		passwordconfirmationFiedled.sendKeys(LumaAccountInfor.passwordconfimation);
-		if (LumaAccountInfor.showPassword) {
+		emailFiedled.sendKeys(email);
+		passwordFiedled.sendKeys(password);
+		passwordconfirmationFiedled.sendKeys(passwordconfimation);
+		if (showPassword) {
 			showpasswordFiedled.click();
 		}
+
+	}
+
+	public void submitButtonClick() {
 		submitButtonFiedled.click();
 	}
-	
-	
 }

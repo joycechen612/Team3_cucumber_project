@@ -19,7 +19,7 @@ public class LumaHomePage {
 	private WebElement searchButton;
 	@FindBy(how = How.XPATH, using = "//span[@class='base']")
 	private WebElement searchResult;
-	@FindBy(how = How.XPATH, using = "//a[@id='idhaUHXJn3']")
+	@FindBy(how = How.LINK_TEXT, using ="Create an Account")
 	private WebElement createAccoutButton;
 
 
