@@ -7,6 +7,7 @@ import pageObjects.LumaSearchResultPage;
 import pageObjects.ZuliluAddressPage;
 import pageObjects.ZulilyGiftCardPage;
 import pageObjects.HomeDepotHomePage;
+import pageObjects.LumaCreateNewAccountPage;
 import pageObjects.ZulilySearchResultPage;
 import pageObjects.ZulilySignInPage;
 import pageObjects.ZulilyToysPage;
@@ -24,8 +25,12 @@ public class PageManager {
 	private ZulilyToysPage zulilyToysPage;
 	private ZulilySignInPage zulilySignInPage;
 	private ZulilyGiftCardPage zulilyGiftCardPage;
+<<<<<<< HEAD
 	private ZuliluAddressPage zuliluAddressPage;
 
+=======
+	private LumaCreateNewAccountPage lumaCreateNewAccountPage;
+>>>>>>> 9768ec8 (create new account)
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -63,7 +68,12 @@ public class PageManager {
 		}
 		return lumaSearchResultPage;
 	}
-
+	public LumaCreateNewAccountPage lumaCreateNewAccountPage() {
+		if (lumaCreateNewAccountPage == null) {
+			lumaCreateNewAccountPage = new LumaCreateNewAccountPage(driver);
+		}
+		return lumaCreateNewAccountPage;
+	}
 	public ZulilyHomePage zulilyHomePage() {
 		if (zulilyHomePage == null) {
 			zulilyHomePage = new ZulilyHomePage(driver);
