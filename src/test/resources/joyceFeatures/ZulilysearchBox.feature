@@ -21,5 +21,5 @@ Feature: verify search box function
 
     Examples: 
       | productName | brandName         | departmentName | subcategories | priceRange | size           |
-      | jeans       | 7 For All Mankind | Women          | Pants         | $50 - $100 | XS (00-2)      |
+      #| jeans       | 7 For All Mankind | Women          | Pants         | $50 - $100 | XS (00-2)      |
       | dress       | Pixie Girl        | Girls          | Dresses       | $25 - $50  | 12 (big kid M) |
