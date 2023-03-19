@@ -12,7 +12,7 @@ public class AddressInfo {
 	public String telephone;
 	public String password;
 	public boolean save;
-	public boolean setDeault;
+ 	public boolean setDeault;
 
 	public AddressInfo(String firstName, String lastName, String company, String address, String city,
 			String country, String state, String zipCode, String telephone, String password, boolean save,

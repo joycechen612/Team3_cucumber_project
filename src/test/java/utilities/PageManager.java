@@ -14,11 +14,11 @@ public class PageManager {
 	private static PageManager pageManager;
 	private WebDriver driver;
 	private HomePage homePage;
-	private SearchResultPage resultPage;
-	private ToysPage toysPage;
-	private SignInPage signInPage;
-	private GiftCardPage giftCardPage;
-	private AddressPage addressPage;
+ 	private SearchResultPage resultPage;
+ 	private ToysPage toysPage;
+ 	private SignInPage signInPage;
+ 	private GiftCardPage giftCardPage;
+ 	private AddressPage addressPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;

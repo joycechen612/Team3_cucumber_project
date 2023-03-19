@@ -21,7 +21,7 @@ public class AddressPage {
 	private static final String expectedPageTitle = "My Account";
 
 	// Elements
-	@FindBy(how = How.CSS, using = "div#account-menu h2")
+	@FindBy(how = How.XPATH, using = "//div[@id='account-menu']/h2")
 	private WebElement myAccoutText;
 	@FindBy(how = How.XPATH, using = "//a[text()='Address Book']")
 	private WebElement addressBookField;
@@ -91,6 +91,7 @@ public class AddressPage {
 		if (!countrySelectedField.getText().contains(addressinfo.country)) {
 			countrySelect.selectByVisibleText(addressinfo.country);
 		}
+		utilities.Util.wait(2);
 		List<WebElement> options = stateSelectField.findElements(By.tagName("option"));
 		for (WebElement option : options) {
 			if (option.getText().equals(addressinfo.state)) {
@@ -98,6 +99,7 @@ public class AddressPage {
 				break;
 			}
 		}
+		utilities.Util.wait(3);
 		zipCodeField.sendKeys(addressinfo.zipCode);
 		telephoneField.sendKeys(addressinfo.telephone);
 		passwordField.sendKeys(addressinfo.password);
@@ -107,7 +109,10 @@ public class AddressPage {
 		if (addressinfo.setDeault) {
 			setDefault.click();
 		}
+
+		
 		saveButton.click();
+		utilities.Util.wait(8);
 	}
 
 	public void validationAddressInfo(AddressInfo addressinfo) {
