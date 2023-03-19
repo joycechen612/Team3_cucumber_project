@@ -8,12 +8,12 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import POJO.ZulilySearchResult;
+import POJO.SearchResult;
 
 public class ExcelUtil {
 	
 
-	public static void writeZulilySearchResultToFile(List<ZulilySearchResult> results, String productName) {
+	public static void writeZulilySearchResultToFile(List<SearchResult> results, String productName) {
 		DataManager dataManager = DataManager.getInstance();
 		
 		XSSFWorkbook workbook = new XSSFWorkbook();
@@ -25,7 +25,7 @@ public class ExcelUtil {
 		firstRow.createCell(2).setCellValue("Title");
 
 		int rowNum = 1;
-		for (ZulilySearchResult result : results) {
+		for (SearchResult result : results) {
 			XSSFRow row = sheet.createRow(rowNum);
 			row.createCell(0).setCellValue(result.id);
 			row.createCell(1).setCellValue(result.priceRange);

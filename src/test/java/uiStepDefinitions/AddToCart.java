@@ -17,7 +17,7 @@ public class AddToCart {
 	public void userEnterOneSpecificProductNameInTheSearchBox(DataTable dataTable) {
 		Map<String, String> data = dataTable.asMap();
 		String productName=data.get("productName");
-		pages.zulilyHomePage().enterSearchContentThenSubmit(productName);
+		pages.homePage().enterSearchContentThenSubmit(productName);
 		dataManager.setproductName(productName);
 		
 	}

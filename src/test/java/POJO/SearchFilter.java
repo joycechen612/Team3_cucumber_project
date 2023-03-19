@@ -1,6 +1,6 @@
 package POJO;
 
-public class ZulilySearchFilter {
+public class SearchFilter {
 	public String productName;
 	public String brandName;
 	public String departmentName;
@@ -8,7 +8,7 @@ public class ZulilySearchFilter {
 	public String priceRange;
 	public String size;
 
-	public ZulilySearchFilter(String productName, String brandName, String departmentName, String subcategories,
+	public SearchFilter(String productName, String brandName, String departmentName, String subcategories,
 			String priceRange, String size) {
 		super();
 		this.productName = productName;

@@ -2,8 +2,8 @@ package utilities;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import POJO.ZulilyAddressInfo;
-import POJO.ZulilySearchFilter;
+import POJO.AddressInfo;
+import POJO.SearchFilter;
 
 public class DataManager {
 
@@ -31,8 +31,8 @@ public class DataManager {
 	private String orderQty;
 	private int lowPrice;
 	private int highPrice;
-	private ZulilySearchFilter zulilySearchFilter;
-	private ZulilyAddressInfo addressinfo;
+	private SearchFilter zulilySearchFilter;
+	private AddressInfo addressinfo;
 
 	public int getLowPrice() {
 		assertNotNull(lowPrice, "DataManager - lowPrice is not available");
@@ -70,21 +70,21 @@ public class DataManager {
 		this.orderQty = orderQty;
 	}
 
-	public ZulilySearchFilter getzulilySearchFilter() {
+	public SearchFilter getzulilySearchFilter() {
 		assertNotNull(zulilySearchFilter, "DataManager - zulilySearchFilter is not available");
 		return zulilySearchFilter;
 	}
 
-	public void setzulilySearchFilter(ZulilySearchFilter zulilySearchFilter) {
+	public void setzulilySearchFilter(SearchFilter zulilySearchFilter) {
 		this.zulilySearchFilter = zulilySearchFilter;
 	}
 
-	public ZulilyAddressInfo getAddressinfo() {
+	public AddressInfo getAddressinfo() {
 		assertNotNull(addressinfo, "DataManager - addressinfo is not available");
 		return addressinfo;
 	}
 
-	public void setAddressinfo(ZulilyAddressInfo addressinfo) {
+	public void setAddressinfo(AddressInfo addressinfo) {
 		this.addressinfo = addressinfo;
 	}
 

@@ -7,7 +7,7 @@ import io.cucumber.java.en.*;
 import utilities.DataManager;
 import utilities.PageManager;
 
-public class ZulilyShoppingBasket {
+public class ShoppingBasket {
 	private PageManager pages = PageManager.getInstance();
 	private DataManager dataManager = DataManager.getInstance();
 
@@ -16,7 +16,7 @@ public class ZulilyShoppingBasket {
 		Map<String, String> data = dataTable.asMap();
 		String productName = data.get("productName");
 		dataManager.setproductName(productName);
-		pages.zulilyHomePage().enterSearchContentThenSubmit(productName);
+		pages.homePage().enterSearchContentThenSubmit(productName);
 		pages.searchResultPage().clickSearchResultItem();
 		pages.searchResultPage().clickAddToBasket();
 		pages.searchResultPage().verifyProductName(productName);

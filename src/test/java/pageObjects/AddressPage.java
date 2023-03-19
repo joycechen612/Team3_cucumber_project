@@ -8,13 +8,13 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import POJO.ZulilyAddressInfo;
+import POJO.AddressInfo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-public class ZuliluAddressPage {
+public class AddressPage {
 
 	// Local Variable
 	private WebDriver driver;
@@ -53,7 +53,7 @@ public class ZuliluAddressPage {
 	private WebElement saveAddress;
 	@FindBy(how = How.NAME, using = "address[default]")
 	private WebElement setDefault;
-	@FindBy(how = How.CSS, using = "button.address-form-submit")
+	@FindBy(how = How.XPATH, using = "//button[@type='submit']")
 	private WebElement saveButton;
 	@FindBy(how = How.CLASS_NAME, using = "address-book-item ")
 	private WebElement addressBookContainer;
@@ -63,7 +63,7 @@ public class ZuliluAddressPage {
 	private WebElement addressBookLastName;
 
 	// Constructor
-	public ZuliluAddressPage(WebDriver driver) {
+	public AddressPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -82,7 +82,7 @@ public class ZuliluAddressPage {
 		addAnAddressButton.click();
 	}
 
-	public void fillInInfor(ZulilyAddressInfo addressinfo) {
+	public void fillInInfor(AddressInfo addressinfo) {
 		firnameField.sendKeys(addressinfo.firstName);
 		lastNameField.sendKeys(addressinfo.lastName);
 		companyField.sendKeys(addressinfo.company);
@@ -113,7 +113,7 @@ public class ZuliluAddressPage {
 		saveButton.click();
 	}
 
-	public void validationAddressInfo(ZulilyAddressInfo addressinfo) {
+	public void validationAddressInfo(AddressInfo addressinfo) {
 		assertEquals(addressBookFirstName.getText(), addressinfo.firstName);
 		assertEquals(addressBookLastName.getText(), addressinfo.lastName);
 	}

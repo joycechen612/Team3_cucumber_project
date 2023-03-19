@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ZulilyGiftCardPage {
+public class GiftCardPage {
 
 	// Local Variable
 	private WebDriver driver;
@@ -49,7 +49,7 @@ public class ZulilyGiftCardPage {
 	private WebElement shoppingCardDateInfo;
 
 	// Constructor
-	public ZulilyGiftCardPage(WebDriver driver) {
+	public GiftCardPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

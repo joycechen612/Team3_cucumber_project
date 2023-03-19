@@ -15,13 +15,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import POJO.ZulilySearchFilter;
-import POJO.ZulilySearchResult;
+import POJO.SearchFilter;
+import POJO.SearchResult;
 import utilities.ExcelUtil;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ZulilySearchResultPage {
+public class SearchResultPage {
 
 	// Local Variable
 	private WebDriver driver;
@@ -60,7 +60,7 @@ public class ZulilySearchResultPage {
 	private List<WebElement> filterRearchResults;
 
 	// Constructor
-	public ZulilySearchResultPage(WebDriver driver) {
+	public SearchResultPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -137,7 +137,7 @@ public class ZulilySearchResultPage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.numberOfElementsToBe(
 				By.xpath("//li[contains(@class,'zu-trackable-search-result')]"), filterRearchResults.size()));
-		List<ZulilySearchResult> results = new ArrayList<>();
+		List<SearchResult> results = new ArrayList<>();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 				"(//li[contains(@class,'zu-trackable-search-result')])[1]//div[@class='product_tile_v2_price_container']/span[1]")));
 		int id = 1;
@@ -149,7 +149,7 @@ public class ZulilySearchResultPage {
 			String actualPriceRange = driver.findElement(By.xpath(priceXpath)).getText();
 			String actualBrandName = driver.findElement(By.xpath(brandXpath)).getText();
 			String actualProductDescription = driver.findElement(By.xpath(productXpath)).getText();
-			results.add(new ZulilySearchResult(id, actualProductDescription, actualPriceRange));
+			results.add(new SearchResult(id, actualProductDescription, actualPriceRange));
 			id++;
 			assertEquals(ExpectedBrandName, actualBrandName);
 			assertTrue(actualProductDescription.contains(departmentName));

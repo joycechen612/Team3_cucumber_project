@@ -14,9 +14,9 @@ public class Common {
 	@Given("user login zulily account")
 	public void userLoginZulilyAccount(DataTable dataTable) {
 		Map<String, String> data = dataTable.asMap();
-		pages.zulilyHomePage().navigate();
-		pages.zulilyHomePage().clickSignInButton();
-		pages.zulilyHomePage().enterEmailAndPW(data.get("username"), data.get("password"));
+		pages.homePage().navigate();
+		pages.homePage().clickSignInButton();
+		pages.homePage().enterEmailAndPW(data.get("username"), data.get("password"));
 	}
 
 }

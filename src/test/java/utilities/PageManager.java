@@ -2,29 +2,23 @@ package utilities;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.LumaHomePage;
-import pageObjects.LumaSearchResultPage;
-import pageObjects.ZuliluAddressPage;
-import pageObjects.ZulilyGiftCardPage;
-import pageObjects.HomeDepotHomePage;
-import pageObjects.ZulilySearchResultPage;
-import pageObjects.ZulilySignInPage;
-import pageObjects.ZulilyToysPage;
-import pageObjects.ZulilyHomePage;
+import pageObjects.AddressPage;
+import pageObjects.GiftCardPage;
+import pageObjects.SearchResultPage;
+import pageObjects.SignInPage;
+import pageObjects.ToysPage;
+import pageObjects.HomePage;
 
 public class PageManager {
 
 	private static PageManager pageManager;
 	private WebDriver driver;
-	private LumaHomePage lumaHomePage;
-	private LumaSearchResultPage lumaSearchResultPage;
-	private HomeDepotHomePage homePage;
-	private ZulilyHomePage zulilyHomePage;
-	private ZulilySearchResultPage searchResultPage;
-	private ZulilyToysPage zulilyToysPage;
-	private ZulilySignInPage zulilySignInPage;
-	private ZulilyGiftCardPage zulilyGiftCardPage;
-	private ZuliluAddressPage zuliluAddressPage;
+	private HomePage homePage;
+	private SearchResultPage resultPage;
+	private ToysPage toysPage;
+	private SignInPage signInPage;
+	private GiftCardPage giftCardPage;
+	private AddressPage addressPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -43,67 +37,46 @@ public class PageManager {
 		}
 	}
 
-	public HomeDepotHomePage homePage() {
+	public HomePage homePage() {
 		if (homePage == null) {
-			homePage = new HomeDepotHomePage(driver);
+			homePage = new HomePage(driver);
 		}
 		return homePage;
 	}
 
-	public LumaHomePage lumaHomePage() {
-		if (lumaHomePage == null) {
-			lumaHomePage = new LumaHomePage(driver);
+	public SearchResultPage searchResultPage() {
+		if (resultPage == null) {
+			resultPage = new SearchResultPage(driver);
 		}
-		return lumaHomePage;
+		return resultPage;
 	}
 
-	public LumaSearchResultPage lumaSearchResultPage() {
-		if (lumaSearchResultPage == null) {
-			lumaSearchResultPage = new LumaSearchResultPage(driver);
+	public ToysPage toysPage() {
+		if (toysPage == null) {
+			toysPage = new ToysPage(driver);
 		}
-		return lumaSearchResultPage;
+		return toysPage;
 	}
 
-	public ZulilyHomePage zulilyHomePage() {
-		if (zulilyHomePage == null) {
-			zulilyHomePage = new ZulilyHomePage(driver);
+	public SignInPage signInPage() {
+		if (signInPage == null) {
+			signInPage = new SignInPage(driver);
 		}
-		return zulilyHomePage;
+		return signInPage;
 	}
 
-	public ZulilySearchResultPage searchResultPage() {
-		if (searchResultPage == null) {
-			searchResultPage = new ZulilySearchResultPage(driver);
+	public GiftCardPage giftCardPage() {
+		if (giftCardPage == null) {
+			giftCardPage = new GiftCardPage(driver);
 		}
-		return searchResultPage;
+		return giftCardPage;
 	}
 
-	public ZulilyToysPage zulilyToysPage() {
-		if (zulilyToysPage == null) {
-			zulilyToysPage = new ZulilyToysPage(driver);
+	public AddressPage addressPage() {
+		if (addressPage == null) {
+			addressPage = new AddressPage(driver);
 		}
-		return zulilyToysPage;
-	}
-
-	public ZulilySignInPage zulilySignInPage() {
-		if (zulilySignInPage == null) {
-			zulilySignInPage = new ZulilySignInPage(driver);
-		}
-		return zulilySignInPage;
-	}
-
-	public ZulilyGiftCardPage zulilyGiftCardPage() {
-		if (zulilyGiftCardPage == null) {
-			zulilyGiftCardPage = new ZulilyGiftCardPage(driver);
-		}
-		return zulilyGiftCardPage;
-	}
-
-	public ZuliluAddressPage zuliluAddressPage() {
-		if (zuliluAddressPage == null) {
-			zuliluAddressPage = new ZuliluAddressPage(driver);
-		}
-		return zuliluAddressPage;
+		return addressPage;
 	}
 
 }

@@ -15,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ZulilySignInPage {
+public class SignInPage {
 	// Local Variable
 	private WebDriver driver;
 	private static final String expectedPageHeader = "Sign In";
@@ -36,7 +36,7 @@ public class ZulilySignInPage {
 	private List<WebElement> linksField;
 
 	// Constructor
-	public ZulilySignInPage(WebDriver driver) {
+	public SignInPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

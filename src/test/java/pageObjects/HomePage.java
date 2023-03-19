@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ZulilyHomePage {
+public class HomePage {
 
 	// Local Variable
 	private WebDriver driver;
@@ -23,7 +23,7 @@ public class ZulilyHomePage {
 	private static final String searchOptionCss = ".autocomplete-list-element";
 
 	// Constructor
-	public ZulilyHomePage(WebDriver driver) {
+	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

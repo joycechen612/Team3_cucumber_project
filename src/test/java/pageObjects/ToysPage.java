@@ -14,7 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ZulilyToysPage {
+public class ToysPage {
 	// Local Variable
 	private WebDriver driver;
 
@@ -31,7 +31,7 @@ public class ZulilyToysPage {
 	private WebElement nextPageButton;
 
 	// Constructor
-	public ZulilyToysPage(WebDriver driver) {
+	public ToysPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

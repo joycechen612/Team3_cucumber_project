@@ -1,6 +1,6 @@
 package POJO;
 
-public class ZulilyAddressInfo {
+public class AddressInfo {
 	public String firstName;
 	public String lastName;
 	public String company;
@@ -14,7 +14,7 @@ public class ZulilyAddressInfo {
 	public boolean save;
 	public boolean setDeault;
 
-	public ZulilyAddressInfo(String firstName, String lastName, String company, String address, String city,
+	public AddressInfo(String firstName, String lastName, String company, String address, String city,
 			String country, String state, String zipCode, String telephone, String password, boolean save,
 			boolean setDeault) {
 		super();
