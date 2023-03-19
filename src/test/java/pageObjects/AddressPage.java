@@ -53,14 +53,13 @@ public class AddressPage {
 	private WebElement saveAddress;
 	@FindBy(how = How.NAME, using = "address[default]")
 	private WebElement setDefault;
-	@FindBy(how = How.XPATH, using = "//button[@type='submit']")
+	@FindBy(how = How.XPATH, using = "//button[contains(@class,'address-form-submit')]")
 	private WebElement saveButton;
-	@FindBy(how = How.CLASS_NAME, using = "address-book-item ")
-	private WebElement addressBookContainer;
-	@FindBy(how = How.CLASS_NAME, using = "address-firstname")
+	@FindBy(how = How.XPATH, using = "//span[@class='address-firstname']")
 	private WebElement addressBookFirstName;
-	@FindBy(how = How.CLASS_NAME, using = "address-lastname")
+	@FindBy(how = How.XPATH, using = "//span[@class='address-lastname']")
 	private WebElement addressBookLastName;
+
 
 	// Constructor
 	public AddressPage(WebDriver driver) {
@@ -102,11 +101,9 @@ public class AddressPage {
 		zipCodeField.sendKeys(addressinfo.zipCode);
 		telephoneField.sendKeys(addressinfo.telephone);
 		passwordField.sendKeys(addressinfo.password);
-		utilities.Util.wait(3);
 		if (addressinfo.save) {
 			saveAddress.click();
 		}
-		utilities.Util.wait(3);
 		if (addressinfo.setDeault) {
 			setDefault.click();
 		}

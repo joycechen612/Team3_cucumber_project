@@ -32,7 +32,7 @@ public class SearchResultPage {
 	private List<WebElement> searchResults;
 	@FindBy(how = How.XPATH, using = "//span[text()='add to basket']")
 	private WebElement addToBasket;
-	@FindBy(how = How.XPATH, using = "(//h3[@class='product-name ']//a)[1]")
+	@FindBy(how = How.XPATH, using = "(//h3[@class='product-name '])[1]")
 	private WebElement productName;
 	@FindBy(how = How.XPATH, using = "//li[contains(@class,'zu-trackable-search-result')]")
 	private WebElement sigleSearchResultField;
@@ -67,7 +67,7 @@ public class SearchResultPage {
 
 	// action
 	public void verifySearchTitle(String content) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector(searchResultsCss), searchResults.size()));
 		for (WebElement result : searchResults) {
 			assertTrue(result.getText().contains(content));
@@ -75,7 +75,7 @@ public class SearchResultPage {
 	}
 
 	public void clickSearchResultItem() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		try {
 			wait.until(ExpectedConditions.visibilityOf(sigleSearchResultField));
 			sigleSearchResultField.click();
@@ -89,7 +89,7 @@ public class SearchResultPage {
 	}
 
 	public void verifyProductName(String expectedProductName) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(productName));
 		System.out.println(productName.getText());
 		assertTrue(productName.getText().contains(expectedProductName));
@@ -97,7 +97,7 @@ public class SearchResultPage {
 
 	public void changOrderQty(String number) {
 		editButton.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(selectQty));
 		Select qtySelect = new Select(selectQty);
 		qtySelect.selectByValue(number);
